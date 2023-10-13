@@ -3,6 +3,8 @@ def turing_machine(rules, states, tape, timeout):
     tape_len = len(tape_array)
     head_ind = 0
     curr_state = states[0]
+    if tape_len == 0:
+        tape_array = ['_']
 
     while curr_state != states[1]:
         try:

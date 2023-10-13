@@ -12,13 +12,16 @@ def main():
         states = input().split(',')
     except:
         print('States are in invalid format.')
-    print('Enter the starting tape, with an underscore for blanks.')
+    print('Enter the starting tape(s), with an underscore for blanks. If multiple tests, separate with ,')
     tape = input()
     print('Enter time in ms for computation timeout')
     try:
         timeout = int(input())
     except:
         timeout = 5000
-    turing_machine.turing_machine(rules, states, tape, timeout)
+
+    tape = tape.split(',')
+    for start_tape in tape:
+        turing_machine.turing_machine(rules, states, start_tape, timeout)
 
 main()
